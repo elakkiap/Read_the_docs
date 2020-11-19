@@ -33,6 +33,7 @@ Please follow this `link <http://kastner.ucsd.edu/hlsbook/>`_ for the textbook a
    project4
    project4.5
    project6
+   mono_fm
    PYNQ-example
    axidma
    axidma2
