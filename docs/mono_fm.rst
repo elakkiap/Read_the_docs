@@ -13,7 +13,7 @@ In this project we will build an FM Demodulator and implement it on the Pynq Boa
 2) Project Goal
 ---------------
 
-In this project, you will use your knowledge from previous projects to implement a FM Demodulator in programmable logic. The project is divided into two parts. In the first part, you develop different functions for a FM Demodulator using HLS. A FM Demodulator consists of a linear filter, downsampler and a discriminator.The second part is to integrate the Demodulator onto the Pynq Board using "RTL2832" USB tuners to get our RF input samples. You should be able to listen to local FM radio channels using your MonoFM implementation in programmable logic. For more detail about the mono FM implementation have a look at it's source code `here <https://github.com/mwickert/scikit-dsp-comm/blob/master/sk_dsp_comm/rtlsdr_helper.py>`_.
+In this project, you will use your knowledge from previous projects to implement a FM Demodulator in programmable logic. The project is divided into two parts. In the first part, you develop different functions for a FM Demodulator using HLS. A FM Demodulator consists of a linear filter, downsampler and a discriminator.The second part is to integrate the Demodulator onto the Pynq Board using "RTL2832" USB tuners. You should be able to listen to local FM radio channel using your MonoFM implementation in programmable logic. For more detail about the mono FM implementation have a look at it's source code `here <https://github.com/mwickert/scikit-dsp-comm/blob/master/sk_dsp_comm/rtlsdr_helper.py>`_.
 
 3) Materials
 ------------
@@ -49,8 +49,25 @@ This means that the filter implements:
 
 **discriminator**
 ################
+To demodulate FM we require a discriminator circuit, which gives an output which is proportional to the input frequency deviation. 
 
 
+.. code-block :: python3
+
+   function disdata = discrim(x)
+   // x is the received signal in complex baseband form
+   // Mark Wickert
+   // xI is the real part of the received signal
+   // xQ is the imaginary part of the received signal
+   // N is the length of x
+   // b filter coefficients
+   // a for discrete derivative
+   der_xI = linear_filter(b,a,xI)
+   der_xQ = linear_filter(b,a,xQ)
+   // normalize by the squared envelop acts as a limiter
+   disdata = (xI*der_xQ-xQ*der_xI)./(xI^2+xQ^2)
+   
+More information about the discriminator can be found `here <http://www.eas.uccs.edu/~mwickert/ece5625/lecture_notes/N5625_4.pdf>`_ in page 4-23.
 
 **Optimization Guidelines**
 
@@ -61,8 +78,6 @@ This means that the filter implements:
 
 5) PYNQ Demo
 ------------
-
-`How to set up WBFM in GNU Radio <https://bitbucket.org/akhodamoradiUCSD/237c_data_files/downloads/WESProject5_student.zip>`_.
 
 This project is different from your previous projects in the sense that it works in real time. Effect of latency and throughput of your implementation can be observed by listening to your audio output. You are highly encouraged to modify the code to achieve a better performance and observe the throughput by changing the way you transmit data between PS and PL. Make use of the "RTL 2832" USB tuner in-order to receive the input RF Samples.
 
@@ -76,7 +91,7 @@ You must also submit your code (and only your code, not other files, not HLS pro
 
 You must follow the file structure below. We use automated scripts to pull your data, so **DOUBLE CHECK** your file/folder names to make sure it corresponds to the instructions.
 
-Your repo must contain a folder named "wbfm_receiver" at the top-level. This folder must be organized as follows (similar to previous projects):
+Your repo must contain a folder named "mono_fm" at the top-level. This folder must be organized as follows (similar to previous projects):
 
 **Contents:**
 
@@ -102,5 +117,4 @@ Your repo must contain a folder named "wbfm_receiver" at the top-level. This fol
 
 **10 points:** Report.
 
-**Bonus:** You are free to explore and improve the existing project as you wish. The amount of extra credit will depend upon the work. Contact the professor and TAs beforehand if you wish to know how many additional points that a project enhancement will provide. Some examples of improvement are:
-
+**Bonus:** Base Overlay
