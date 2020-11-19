@@ -73,7 +73,7 @@ More information about the discriminator can be found `here <http://www.eas.uccs
 
 * You must always use a clock period of 10 ns.
 
-* The output of the various architectures that you generate must match the golden output. We have broken down the project into subcomponents to allow you to develop and test them individually. You would be wise to do it in such a manner.
+* Try to achieve the best possible latency/throughput.
 
 
 5) PYNQ Demo
@@ -117,4 +117,4 @@ Your repo must contain a folder named "mono_fm" at the top-level. This folder mu
 
 **10 points:** Report.
 
-**Bonus:** Base Overlay
+**Bonus:** Are we adding bonus part with Base Overlay?
