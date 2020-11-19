@@ -73,7 +73,7 @@ More information about the discriminator can be found `here <http://www.eas.uccs
 
 * You must always use a clock period of 10 ns.
 
-* Try to achieve the best possible latency/throughput.
+* The latency for demodulation should be less than the sample time; i.e. less than 1 second for 1 second sample time.
 
 
 5) PYNQ Demo
