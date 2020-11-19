@@ -106,7 +106,7 @@ Your repo must contain a folder named "mono_fm" at the top-level. This folder mu
   - .bit and .hwh files
   - FM.ipynb host file
 
-**Report:** For this project, you must submit a report the throughput with 1 page for each function from section 4. You may add figures, diagrams, tables, or charts to describe your architectures with a short paragraph explaining them. No questions; no answers. Just explain your design. We will check if (1) your final FM Demodulation functions are functionally correct (they pass their test benches). The report will help us to understand your design. You also can use this report to explain your work for bonus part (check the grading section).
+**Report:** For this project, you must submit a report the throughput with 1 page for each function from section 4. You may add figures, diagrams, tables, or charts to describe your architectures with a short paragraph explaining them. No questions; no answers. Just explain your design. We will check if (1) your final FM Demodulation functions are functionally correct (they pass their test benches) and (2) achieves target latency. The report will help us to understand your design. You also can use this report to explain your work for bonus part (check the grading section).
 
 7) Grading Rubric
 -----------------
@@ -117,4 +117,4 @@ Your repo must contain a folder named "mono_fm" at the top-level. This folder mu
 
 **10 points:** Report.
 
-**Bonus:** Are we adding bonus part with Base Overlay?
+**Bonus:** Integrate your design with the base overlay to make use of audio instance on the Pynq Board. More information about the audio module on Pynq Z2 can be found `here <https://pynq.readthedocs.io/en/v2.3/pynq_libraries/audio.html>`_ and `here <https://pynq.readthedocs.io/en/v2.3/pynq_package/pynq.lib/pynq.lib.audio.html#pynq-lib-audio>`_. Detailed description of the BaseOverlay can be found  `here <https://pynq.readthedocs.io/en/v2.3/pynq_overlays/pynqz2/pynqz2_base_overlay.html>`_.
