@@ -111,7 +111,7 @@ Your repo must contain a folder named "mono_fm" at the top-level. This folder mu
 7) Grading Rubric
 -----------------
 
-**30 points:** Functionally correct design. You will get full credit if we are able to build your blocks without any effort. All four functions must pass their test benches. You need to report your throughput for each function in your report.
+**30 points:** Functionally correct design. You will get full credit if we are able to build your blocks without any effort. You need to report the throughput of the final design.
 
 **60 points:** Pynq Demo. You will get full credit for clear audio output.
 
